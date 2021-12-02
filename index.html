@@ -165,6 +165,161 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-git的简单使用/git的简单使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/12/02/git%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/git%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">Git的简单使用</a>
+    </h1>
+  
+
+	
+	<!--显示阅读次数-->
+	
+	<!--显示阅读次数完毕-->
+
+        
+        <a href="/2021/12/02/git%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/git%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2021-12-02T12:40:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>什么是git❓</p>
+<p>git是目前世界上最先进的分布式版本控制系统。 </p>
+<h2 id="Git-基本操作"><a href="#Git-基本操作" class="headerlink" title="Git 基本操作"></a>Git 基本操作</h2><p>了解基本操作前我们先来了解一下什么是工作区、什么是暂存区、什么是版本库</p>
+<p>工作区：你在电脑文件夹里看到的目录</p>
+<p>暂存区：放在 .git 目录下的index文件中</p>
+<p>版本库：工作区里有个隐藏目录，这个不算工作区而是Git的版本库</p>
+<p>1、初始化仓库（通过命令git init把这个目录变成git可以管理的仓库）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<p>此时目录下会多出一个.git文件</p>
+<p>2、添加文件到暂存区</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
+
+<p>3、将暂存区文件提交到仓库中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m&#x27;备注&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>—–通过以上三步我们就可以将文件提交到版本库中—–</p>
+<p>4、查看仓库当前状态，显示有变更的文件（查看是否有其他文件没提交）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<p>5、查看历史提交记录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure>
+
+<p>6、比较文件的不同，即暂存区与工作区的差异</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff</span><br></pre></td></tr></table></figure>
+
+<p>7、删除工作区文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm</span><br></pre></td></tr></table></figure>
+
+<h2 id="远程操作"><a href="#远程操作" class="headerlink" title="远程操作"></a>远程操作</h2><h3 id="添加远程库"><a href="#添加远程库" class="headerlink" title="添加远程库"></a>添加远程库</h3><p>此操作即可将你的本地文件上传到github的仓库中</p>
+<p>1、创建SSH key 之后在github上面创建一个仓库</p>
+<p>2、创建仓库后会生成一个链接，使用远程操作</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://github.com/prician/Demo.git</span><br></pre></td></tr></table></figure>
+
+<p>⚠️注意这个链接要用你创建仓库后生成的链接</p>
+<p>3、将本地库推送到远程(实际上是把当前的master推送到远程)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+
+<p>把本地master推送到远程后，就可以在github上查看啦！</p>
+<h3 id="创建与合并分支"><a href="#创建与合并分支" class="headerlink" title="创建与合并分支"></a>创建与合并分支</h3><p>源自网络：几乎每一种版本控制系统都以某种形式支持分支。使用分支意味着你可以从开发主线上分离开来，然后在不影响主线的同时继续工作。</p>
+<p>1、我们先创建dev分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch dev</span><br></pre></td></tr></table></figure>
+
+<p>2、切换分支到dev</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout dev</span><br></pre></td></tr></table></figure>
+
+<p>当然 git checkout -b dev 可以实现创建dev并切换到该分支</p>
+<p>3、然后就可以在该分支进行修改添加文件等，完成后在将其提交到仓库中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m&#x27;备注&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>4、此时切回master主分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br></pre></td></tr></table></figure>
+
+<p>5、合并dev分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge --no-ff -m “注释” dev</span><br></pre></td></tr></table></figure>
+
+<p>之后在推送到远程库</p>
+<h3 id="从远程库克隆"><a href="#从远程库克隆" class="headerlink" title="从远程库克隆"></a>从远程库克隆</h3><p>如果远程库有了新的内容或者想看其他开源代码，可以将其克隆到本地</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone http链接</span><br></pre></td></tr></table></figure>
+
+<p>同样还有一个操作可以从远程获取代码并合并本地的版本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
+
+<p>好啦，以上算是我学习git的一些小笔记，如果有新的理解会继续更新的！</p>
+
+      
+	
+	 <!-- 添加版权声明 -->
+    
+
+  <div class="declare" hidden="hidden"></div>
+
+      <!-- 添加版权声明 -->
+
+	
+
+	
+
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/12/02/git%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/git%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-如何导入第三方库/如何导入第三方库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -190,7 +345,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>会的越多，不会的越多</p>
+        <p>继续努力💪</p>
         
           <a class="article-more-a" href="/2021/11/30/%E5%A6%82%E4%BD%95%E5%AF%BC%E5%85%A5%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/%E5%A6%82%E4%BD%95%E5%AF%BC%E5%85%A5%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/#more">more >></a>
         
