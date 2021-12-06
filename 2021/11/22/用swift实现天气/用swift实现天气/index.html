@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://i.loli.net/2021/12/01/XwDMyO5YiT6f2c3.png">
 <meta property="og:image" content="https://i.loli.net/2021/12/01/bizk1rmtFSjyecx.jpg">
 <meta property="article:published_time" content="2021-11-22T13:55:47.000Z">
-<meta property="article:modified_time" content="2021-12-01T14:17:43.018Z">
+<meta property="article:modified_time" content="2021-12-06T10:43:40.704Z">
 <meta property="article:author" content="王舒鋡">
 <meta property="article:tag" content="iOS">
 <meta name="twitter:card" content="summary">
@@ -278,9 +278,23 @@
 
 <h2 id="基本控件的实现"><a href="#基本控件的实现" class="headerlink" title="基本控件的实现"></a>基本控件的实现</h2><p>基本控件就是一些UICollectionView、UITableView、Label、UIImageView等</p>
 <p>在主界面运用UICollectionView来将搜索、温度、详情分成三个cell来写，点进搜索后运用了UITableView来选择城市</p>
+<p>CollectionViewLayout里有函数可以设置cell的大小和间距</p>
+<p>设置cell的大小</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">collectionView</span>(<span class="keyword">_</span> <span class="params">collectionView</span>: <span class="type">UICollectionView</span>,<span class="params">layout</span> <span class="params">collectonViewLayout</span>: <span class="type">UICollectionViewLayout</span>,<span class="params">sizeForItemAt</span> <span class="params">indexPath</span>: <span class="type">IndexPath</span>)</span> -&gt; <span class="type">CGSize</span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="type">CGSize</span>(width: <span class="number">100</span>, height: <span class="number">100</span>)</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>设置cell的间距</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">横向  minimumLineSpacing</span><br><span class="line">纵向  minimumInteritemSpacing</span><br></pre></td></tr></table></figure>
+
+<p>举个例子当我 layout.scrollDirection = .horizontal（横向）时</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">collectionView</span>(<span class="keyword">_</span> <span class="params">collectionView</span>: <span class="type">UICollectionView</span>, <span class="params">layout</span> <span class="params">collectionViewLayout</span>: <span class="type">UICollectionViewLayout</span>, <span class="params">minimumLineSpacingForSectionAt</span> <span class="params">section</span>: <span class="type">Int</span>)</span> -&gt; <span class="type">CGFloat</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">24</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
 <p>运用SnapKit画UI，很方便</p>
 <p>举个例子</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">nameLabel.snp.makeConstraints &#123; make <span class="keyword">in</span></span><br><span class="line">	make.top.equalToSuperview().offset(<span class="number">80</span>)</span><br><span class="line">  make.left.equalToSuperview().offset(<span class="number">40</span>)</span><br><span class="line">  make.width.equalTo(<span class="number">200</span>)</span><br><span class="line">  make.height.equalTo(<span class="number">50</span>)</span><br><span class="line">&#125;</span><br><span class="line">        </span><br><span class="line">cloudLabel.snp.makeConstraints &#123; make <span class="keyword">in</span></span><br><span class="line">	make.top.equalTo(nameLabel.snp.bottom).offset(<span class="number">20</span>)</span><br><span class="line">	make.left.equalToSuperview().offset(<span class="number">40</span>)</span><br><span class="line">  make.right.equalToSuperview().offset(<span class="number">0</span>)</span><br><span class="line">  make.height.equalTo(<span class="number">30</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
 
 <p>以上就是我这两个月的学习总结，当然不止这些还有一些动画啊模糊效果这些后续会有博客介绍❤️</p>
 
